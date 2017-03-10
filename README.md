@@ -1,8 +1,24 @@
 # Usage
-PORT=[port_number]  
-PASSWORD=[ssr_password]  
-docker run -d --restart always -p $PORT:443 --name shadowsocksr lasery/rpi-shadowsocksr python server.py -p 443 -k $PASSWORD -m aes-256-cfb -O origin  
+Prepare data volume to persist config data:
+```
+docker volume create tor-data
+```
+
+Start the service:
+```
+docker run -d --name=tor --restart=always -v tor-data:/var/lib/tor --network=host lasery/rpi-tor tor
+```
+
+Get the service domain name:
+```
+docker exec tor cat /var/lib/tor/hidden_service/hostname
+```
+
+SSH to the host:
+```
+torsocks ssh -p 8022 vkvooutkq3rn5dfq.onion
+```
 
 # Development
-docker build -t lasery/rpi-shadowsocksr .  
-docker push lasery/rpi-shadowsocksr  
+docker build -t lasery/rpi-tor .  
+docker push lasery/rpi-tor  

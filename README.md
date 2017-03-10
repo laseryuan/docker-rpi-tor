@@ -1,4 +1,5 @@
 # Usage
+## Setup the service
 Prepare data volume to persist config data:
 ```
 docker volume create tor-data
@@ -12,6 +13,12 @@ docker run -d --name=tor --restart=always -v tor-data:/var/lib/tor --network=hos
 Get the service domain name:
 ```
 docker exec tor cat /var/lib/tor/hidden_service/hostname
+```
+
+## Connect to the service
+Install tor:
+```
+sudo apt-get install tor
 ```
 
 SSH to the host:

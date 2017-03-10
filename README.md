@@ -16,7 +16,7 @@ docker exec tor cat /var/lib/tor/hidden_service/hostname
 
 SSH to the host:
 ```
-torsocks ssh -p 8022 vkvooutkq3rn5dfq.onion
+torsocks ssh -p 8022 [hostname].onion
 ```
 
 # Development

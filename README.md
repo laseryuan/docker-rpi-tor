@@ -1,5 +1,7 @@
 # Usage
-## Setup the service
+## Setup the service 
+[Install Docker](http://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/) on Raspberry Pi
+
 Prepare data volume to persist config data:
 ```
 docker volume create tor-data
